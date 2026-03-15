@@ -14,7 +14,7 @@ Explanation : Subarrays with smallest and second smallest are:- [4, 3] smallest 
 Maximum sum among all above choices is, 5 + 6 = 11.
 '''
 
-
+'''
 #Brute Force
 arr = [3, 1, 2, 4]
 final = 0
@@ -27,5 +27,33 @@ for i in range(len(arr)):
         final += minimum
 
 print(final)
+'''
 
+#Optimal
+
+arr = [1,4,6,7,3,7,8,1]
+left = [0] * len(arr)
+right = [0] * len(arr)
+MOD = (10 ** 9) + 7
+stack = []
+for i in range(len(arr)):
+    count = 1
+    while stack and stack[-1][0] > arr[i]:
+        count += stack.pop()[1]
+    stack.append([arr[i],count])
+    left[i] = count
+
+stack = []
+for i in range(len(arr) - 1, -1, -1):
+    count = 1
+    while stack and stack[-1][0] >= arr[i]:
+        count += stack.pop()[1]
+    stack.append([arr[i],count])
+    right[i] = count
+
+total = 0
+for i in range(len(arr)):
+    total += left[i] * right[i] * arr[i]
+
+print(total % MOD)
 

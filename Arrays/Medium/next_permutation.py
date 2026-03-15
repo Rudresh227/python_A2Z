@@ -35,7 +35,6 @@ nums = [2,1,5,4,3,0,0]
 # nums = [5,4,3,2,1]
 
 index = -1
-
 for i in range(len(nums) - 2, -1, -1):
     if nums[i] < nums[i + 1]:
         index = i
