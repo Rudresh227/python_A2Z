@@ -2,16 +2,16 @@ nums = [100,5,200,1,2,3,4]
 
 
 #Brute Force
-# nums = sorted(nums)
-# max_len = 0
-# count = 0
-#
-# for i in range(1, len(nums)):
-#     if nums[i] == nums[i - 1] + 1:
-#         count += 1
-#     max_len = max(max_len, count)
-#
-# print(max_len)
+nums = sorted(nums)
+max_len = 0
+count = 0
+
+for i in range(1, len(nums)):
+    if nums[i] == nums[i - 1] + 1:
+        count += 1
+    max_len = max(max_len, count)
+
+print(max_len)
 
 #Optimal
 nums = set(nums)
