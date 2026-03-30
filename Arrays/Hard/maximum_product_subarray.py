@@ -6,7 +6,7 @@ max_prod = float('-inf')  # Initialize to smallest possible value
 current_prod = 1
 # Forward pass
 for num in nums:
-    current_prod *= num
+    current_prod *= num 
     max_prod = max(max_prod, current_prod)
     if current_prod == 0:  # Reset if zero encountered
         current_prod = 1
