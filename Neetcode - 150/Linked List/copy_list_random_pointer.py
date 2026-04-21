@@ -1,0 +1,21 @@
+class Solution:
+    def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
+        if not head:
+            return None
+
+        hashmap = {}
+
+        curr = head
+        while curr:
+            hashmap[curr] = Node(curr.val)
+            curr = curr.next
+
+        curr = head
+        while curr:
+            if curr.next:
+                hashmap[curr].next = hashmap[curr.next]
+            if curr.random:
+                hashmap[curr].random = hashmap[curr.random]
+            curr = curr.next
+
+        return hashmap[head]
